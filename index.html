@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<table border="0" cellspacing="10px" cellpadding="10px">
+			<tr>
+				<th><input type="checkbox" name="checkall" id="checkall" value="" /></th>
+				<th>Header</th>
+				<th>Header</th>
+				<th>Header</th>
+				<th>Header</th>
+				<th>Header</th>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check" class="check" value="" /></td>
+				<td>Data1</td>
+				<td>Data1</td>
+				<td>Data1</td>
+				<td>Data1</td>
+				<td>Data1</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check" class="check" value="" /></td>
+				<td>Data2</td>
+				<td>Data2</td>
+				<td>Data2</td>
+				<td>Data2</td>
+				<td>Data2</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check" class="check" value="" /></td>
+				<td>Data3</td>
+				<td>Data3</td>
+				<td>Data3</td>
+				<td>Data3</td>
+				<td>Data3</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check" class="check" value="" /></td>
+				<td>Data4</td>
+				<td>Data4</td>
+				<td>Data4</td>
+				<td>Data4</td>
+				<td>Data4</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check" class="check" value="" /></td>
+				<td>Data5</td>
+				<td>Data5</td>
+				<td>Data5</td>
+				<td>Data5</td>
+				<td>Data5</td>
+			</tr>
+		</table>
+	</body>
+	<script type="text/javascript">
+	window.onload = function(){
+		var checkallObj = document.getElementById("checkall");
+		var checkObj = document.getElementsByClassName("check");
+		var count=0;
+		checkallObj.onclick = function(){
+			if(this.checked == true){
+				for(var i=0; i<checkObj.length; i++){
+					checkObj[i].checked = true;
+				}
+				count = checkObj.length;
+			}else{
+				for(var i=0; i<checkObj.length; i++){
+					checkObj[i].checked = false;
+				}
+				count=0;
+			}
+		};
+		//alert(checkObj.length);
+		for(var i=0; i<checkObj.length; i++){
+			checkObj[i].onclick = function(){
+				if(this.checked == false){
+					count -= 1;
+					checkallObj.checked = false;
+				}else if(this.checked == true){
+					count += 1;
+					if(count == checkObj.length){
+						checkallObj.checked = true;
+					}
+				}
+			}
+		}
+	}
+	</script>
+</html>
